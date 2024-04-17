@@ -28,11 +28,11 @@ if not database_exists(db_path):
 
 # Install needed extension in database 
 sql = ("INSTALL spatial ; INSTALL httpfs ;")
-execute_query_on_db(sql, db_path)
+execute_query_on_db(sql, db_path, "Install extension")
 
 # Download OverturesMaps data 
 with open("sql/places.sql", "r") as file:
     sql_script = file.read()
     sql_script = sql_script.format(millesime=release, xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)
 
-execute_query_on_db(sql_script, db_path)
+execute_query_on_db(sql_script, db_path, "places")

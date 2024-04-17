@@ -2,6 +2,7 @@ from pathlib import Path
 import logging
 from toolbelt.config_logging import *
 import duckdb
+from tqdm import tqdm
 
 def database_exists(db_path:Path)-> bool:
     """Check if the database already exists
@@ -26,7 +27,7 @@ def create_database(db_path:Path)-> None:
     except Exception as e : 
         logging.error(e)
 
-def execute_query_on_db(sql:str, db_path:Path)-> None:
+def execute_query_on_db(sql:str, db_path:Path, query_name)-> None:
     """Execute SQL query on database
 
     :param sql: SQL Query
@@ -35,9 +36,11 @@ def execute_query_on_db(sql:str, db_path:Path)-> None:
     :type db_path: Path
     """
     connection = duckdb.connect(str(db_path))
-    try :
-        connection.sql(sql)
-    except Exception as e : 
+    try:
+        with tqdm(desc=query_name, unit="query") as pbar:
+            connection.sql(sql)
+            pbar.update(1)
+    except Exception as e:
         logging.error(e)
-    connection.close()
-
+    finally:
+        connection.close()
