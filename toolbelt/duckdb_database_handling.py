@@ -16,3 +16,4 @@ def execute_query_on_db(sql:str, db_path:Path):
     except Exception as e : 
         print(e)
     connection.close()
+
