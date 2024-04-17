@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import configparser
-from toolbelt.duckdb_database_handling import database_exists, create_database, execute_query_on_db
 from pathlib import Path
-import duckdb
+
+from toolbelt.duckdb_database_handling import database_exists, create_database, execute_query_on_db
+
 
 # Config 
 config = configparser.ConfigParser()
