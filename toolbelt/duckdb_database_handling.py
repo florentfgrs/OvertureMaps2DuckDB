@@ -1,5 +1,6 @@
-import duckdb
 from pathlib import Path
+
+import duckdb
 
 def database_exists(db_path:Path):
     return db_path.exists()
