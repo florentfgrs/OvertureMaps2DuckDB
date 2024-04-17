@@ -1,4 +1,6 @@
-# OverturesMaps2DuckDB
+# OvertureMaps2DuckDB
+
+🚧 Readme and project still in construction
 
 ![](docs/img/readme.png)
 
@@ -6,7 +8,7 @@
 
 [Overture Maps Foundation](https://overturemaps.org/), in partnership with Amazon Web Services (AWS), Meta, Microsoft and TomTom and other companies, aims to develop open, reusable mapping products.
 
-The aim of this project is to provide scripts and tools to easily retrieve data from OverturesMaps into a DuckDB database on a given right-of-way.
+The aim of this project is to provide scripts and tools to easily retrieve data from OvertureMaps into a DuckDB database on a given right-of-way.
 
 # How to use
 
@@ -28,8 +30,8 @@ These are :
 
 ## 🚀 Run the script
 
-All overtures maps data on the chosen bbox will be uploaded to the database.
+All Overture Maps data on the chosen bbox will be uploaded to the database.
 
 ```bash
-python3 OverturesMaps2DuckDB.py
+python3 OvertureMaps2DuckDB.py
 ```
