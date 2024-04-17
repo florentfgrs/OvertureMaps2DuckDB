@@ -7,9 +7,9 @@ The aim of this project is to provide scripts and tools to easily retrieve data 
 ## 🛠️ Create venv and install dependencies
 
 ```bash
-python -m venv .venv 
+python3 -m venv .venv 
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 ## 📝 Complete the parameters in config.ini
@@ -25,5 +25,5 @@ These are :
 All overtures maps data on the chosen bbox will be uploaded to the database.
 
 ```bash
-main.py
+python3 OverturesMaps2DuckDB.py
 ```
