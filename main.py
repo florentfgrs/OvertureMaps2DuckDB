@@ -4,6 +4,7 @@ import configparser
 from pathlib import Path
 
 from toolbelt.duckdb_database_handling import database_exists, create_database, execute_query_on_db
+from toolbelt.config_logging import *
 
 
 # Config 
