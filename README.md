@@ -16,9 +16,9 @@ python -m pip install -r requirements.txt
 
 These are :
 
-*The desired bbox
-*The database path
-*Release of data to be used
+- The desired bbox
+- The database path
+- Release of data to be used
 
 ## 🚀 Run the script
 
