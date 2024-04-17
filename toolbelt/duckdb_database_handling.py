@@ -35,12 +35,11 @@ def execute_query_on_db(sql:str, db_path:Path, query_name)-> None:
     :param db_path: Database path
     :type db_path: Path
     """
-    connection = duckdb.connect(str(db_path))
-    try:
-        with tqdm(desc=query_name, unit="query") as pbar:
-            connection.sql(sql)
-            pbar.update(1)
-    except Exception as e:
-        logging.error(e)
-    finally:
-        connection.close()
+    with duckdb.connect(str(db_path)) as con:
+        try:
+            with tqdm(desc=query_name, unit="query") as pbar:
+                con.sql(sql)
+                pbar.update(1)
+        except Exception as e:
+            logging.error(e)
+        

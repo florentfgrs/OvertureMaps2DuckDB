@@ -6,7 +6,6 @@ from pathlib import Path
 from toolbelt.duckdb_database_handling import database_exists, create_database, execute_query_on_db
 from toolbelt.config_logging import *
 
-
 # Config 
 config = configparser.ConfigParser()
 config.read("config.ini")
@@ -36,3 +35,4 @@ with open("sql/places.sql", "r") as file:
     sql_script = sql_script.format(millesime=release, xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)
 
 execute_query_on_db(sql_script, db_path, "places")
+
