@@ -1,8 +1,14 @@
 # OverturesMaps2DuckDB
 
+![](docs/img/readme.png)
+
+[DuckDB](https://duckdb.org/) is a fast, lightweight open-source SQL database, ideal for big data analysis.
+
+[Overture Maps Foundation](https://overturemaps.org/), in partnership with Amazon Web Services (AWS), Meta, Microsoft and TomTom and other companies, aims to develop open, reusable mapping products.
+
 The aim of this project is to provide scripts and tools to easily retrieve data from OverturesMaps into a DuckDB database on a given right-of-way.
 
-# How to use ?
+# How to use
 
 ## 🛠️ Create venv and install dependencies
 
