@@ -13,12 +13,12 @@ config.read("config.ini")
 # Get db_path
 db_path = Path(config["DuckDB"]["db_path"])
 
-# Overtures maps
-release = Path(config["OverturesMaps"]["release"])
-xmin = Path(config["OverturesMaps"]["xmin"])
-xmax = Path(config["OverturesMaps"]["xmax"])
-ymin = Path(config["OverturesMaps"]["ymin"])
-ymax = Path(config["OverturesMaps"]["ymax"])
+# Overture maps
+release = Path(config["OvertureMaps"]["release"])
+xmin = Path(config["OvertureMaps"]["xmin"])
+xmax = Path(config["OvertureMaps"]["xmax"])
+ymin = Path(config["OvertureMaps"]["ymin"])
+ymax = Path(config["OvertureMaps"]["ymax"])
 
 
 # Create database if not exists 
@@ -29,7 +29,7 @@ if not database_exists(db_path):
 sql = ("INSTALL spatial ; INSTALL httpfs ;")
 execute_query_on_db(sql, db_path, "Install extension")
 
-# Download OverturesMaps data 
+# Download OvertureMaps data 
 with open("sql/places.sql", "r") as file:
     sql_script = file.read()
     sql_script = sql_script.format(millesime=release, xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)
