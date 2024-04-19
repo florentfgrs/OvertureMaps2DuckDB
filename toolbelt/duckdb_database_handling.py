@@ -1,8 +1,10 @@
 from pathlib import Path
 import logging
 from toolbelt.config_logging import *
+from toolbelt.loader import Loader
 import duckdb
-from tqdm import tqdm
+import threading
+import time
 
 def database_exists(db_path:Path)-> bool:
     """Check if the database already exists
@@ -35,11 +37,20 @@ def execute_query_on_db(sql:str, db_path:Path, query_name)-> None:
     :param db_path: Database path
     :type db_path: Path
     """
-    with duckdb.connect(str(db_path)) as con:
-        try:
-            with tqdm(desc=query_name, unit="query") as pbar:
-                con.sql(sql)
-                pbar.update(1)
-        except Exception as e:
-            logging.error(e)
+
+    start_time = time.time()
+    logging.info("Start : {}".format(query_name))
+
+    loader = Loader("Execution in progress...", "Execution completed !", 0.05).start()
+    try:
+        with duckdb.connect(str(db_path)) as con:
+            con.execute(sql)
+    except Exception as e:
+        logging.error(e)
+    loader.stop()
+    
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    logging.info("During {} sec".format(round(elapsed_time, 2)))
+
         
