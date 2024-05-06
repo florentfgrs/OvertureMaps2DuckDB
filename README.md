@@ -33,5 +33,5 @@ These are :
 All Overture Maps data on the chosen bbox will be uploaded to the database.
 
 ```bash
-python3 OvertureMaps2DuckDB.py
+python3 main.py
 ```
