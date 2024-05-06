@@ -1,3 +1,5 @@
+"""Loader"""
+
 from itertools import cycle
 from shutil import get_terminal_size
 from threading import Thread
@@ -5,6 +7,8 @@ from time import sleep
 
 
 class Loader:
+    """Loader
+    """
     def __init__(self, desc="Loading...", end="Done!", timeout=0.1):
         """
         A loader-like context manager
@@ -23,6 +27,8 @@ class Loader:
         self.done = False
 
     def start(self):
+        """start
+        """
         self._thread.start()
         return self
 
@@ -37,6 +43,7 @@ class Loader:
         self.start()
 
     def stop(self):
+        """stop"""
         self.done = True
         cols = get_terminal_size((80, 20)).columns
         print("\r" + " " * cols, end="", flush=True)

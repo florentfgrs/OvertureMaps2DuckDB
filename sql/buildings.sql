@@ -4,7 +4,9 @@ CREATE TABLE buildings as
 SELECT
 id, 
 update_time,
-sources[1] as sources,
+sources[1].dataset as sources_dataset,
+sources[1].record_id as sources_id,
+sources[1].confidence as sources_confidence,
 names.primary as primary_names,
 level,
 height,
