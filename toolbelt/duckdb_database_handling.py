@@ -61,5 +61,5 @@ def install_load_extension(db_path:Path) -> None:
     :type db_path: Path
     """
     sql = ("FORCE INSTALL spatial FROM 'http://nightly-extensions.duckdb.org' ;"
-           "INSTALL httpfs ; LOAD spatial ; LOAD httpfs ; ")
+           "INSTALL httpfs ;")
     execute_query_on_db(sql, db_path, "Install extension")
