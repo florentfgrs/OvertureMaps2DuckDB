@@ -22,6 +22,7 @@ iso_sub_country_code,
 default_language,
 driving_side,
 locality_id,
+type,
 ST_GeomFromWKB(geometry) as geom
 FROM read_parquet('s3://overturemaps-us-west-2/release/{millesime}/theme=admins/type=*/*', filename=true, hive_partitioning=1)
 WHERE 
@@ -54,6 +55,7 @@ iso_sub_country_code,
 default_language,
 driving_side,
 locality_id,
+type,
 ST_GeomFromText(replace(st_astext(ST_GeomFromWKB(geometry)), 'POLYGON ((', 'MULTIPOLYGON (((')||')') as geom
 FROM read_parquet('s3://overturemaps-us-west-2/release/{millesime}/theme=admins/type=*/*', filename=true, hive_partitioning=1)
 WHERE 
@@ -86,6 +88,7 @@ iso_sub_country_code,
 default_language,
 driving_side,
 locality_id,
+type,
 ST_GeomFromWKB(geometry) as geom
 FROM read_parquet('s3://overturemaps-us-west-2/release/{millesime}/theme=admins/type=*/*', filename=true, hive_partitioning=1)
 WHERE 
