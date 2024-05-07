@@ -35,7 +35,7 @@ if not database_exists(db_path):
 install_load_extension(db_path)
 
 
-for table in ['buildings', 'places'] :
+for table in ['admins', 'places', 'buildings'] :
     # Download OvertureMaps data
     with open(f"sql/{table}.sql", "r", encoding="utf-8") as file:
         sql_script = file.read()
